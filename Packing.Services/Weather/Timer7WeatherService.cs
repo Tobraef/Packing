@@ -33,7 +33,7 @@ namespace Packing.Services.Weather
         {
             var today = _dateService.GetTodayDate();
             var daysDifference = day - today;
-            return daysDifference.TotalDays < 7;
+            return daysDifference.TotalDays <= 7;
         }
 
         public async Task<Result<WeatherSummary, MessageError>> GetWeatherForDay(DateTime day, City location)

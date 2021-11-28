@@ -51,7 +51,7 @@ namespace Packing.Services.Location
                     return (int?)null;
                 })
                 .Where(x => x != null)
-                .Select(x => x.Value);
+                .Select(x => x ?? 0);
             if (!geoIds.Any())
                 return new MessageError("Couldn't parse links json part.");
             return new Result<IEnumerable<int>, MessageError>(geoIds);

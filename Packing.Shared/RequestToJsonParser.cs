@@ -26,7 +26,10 @@ namespace Packing.Shared
         {
             try
             {
-                return await JsonSerializer.DeserializeAsync<T>(responseStream);
+                return await JsonSerializer.DeserializeAsync<T>(responseStream, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                });
             }
             catch (JsonException exception)
             {
